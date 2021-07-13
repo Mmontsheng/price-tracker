@@ -1,0 +1,29 @@
+{
+
+  "manifest_version": 2,
+  "name": "Price tracker",
+  "version": "1.0.0",
+
+  "description": "Tracks product prices on online shops.",
+
+  "icons": {
+    "48": "assets/icons/48.png"
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "48": "assets/icons/48.png"
+    },
+    "default_title": "Price Tracker",
+    "default_popup": "action/index.html"
+  },
+  "permissions": [
+    "notifications",
+    "storage",
+    "unlimitedStorage"
+  ],
+  "options_ui": {
+    "page": "options/index.html",
+    "browser_style": true
+  }
+}

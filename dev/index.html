@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Product Page MM</title>
+</head>
+<body>
+  <h2 id="product-name"></h2>
+  <img
+    src="https://via.placeholder.com/250C/O%20https://placeholder.com/"
+    alt="product"
+  >
+
+  <p id="price"></p>
+  <script>
+    const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+    const products = [
+      {
+        name: 'Rice',
+        price: randomNumber(43, 50),
+      },
+      {
+        name: 'Cooking Oil',
+        price: randomNumber(70, 120),
+      },
+      {
+        name: 'Bread',
+        price: randomNumber(16, 20),
+      },
+      {
+        name: 'Onions',
+        price: randomNumber(20, 30),
+      },
+    ]
+
+    const product = products[randomNumber(0, products.length-1)]
+    
+    const priceTag = document.getElementById('price');
+    const productNameTag = document.getElementById('product-name');
+
+    priceTag.innerHTML = product.price;
+    productNameTag.innerHTML = product.name;
+  </script>
+</body>
+</html>

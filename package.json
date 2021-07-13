@@ -1,0 +1,40 @@
+{
+  "name": "price-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack/dev.conf.js",
+    "build:prod": "webpack --config webpack/prod.conf.js",
+    "serve:firefox": "npm run build && web-ext run --source-dir build --start-url http://localhost:9000/",
+    "serve": "live-server --port=9000 --entry-file=./dev/index.html --no-browser",
+    "watch": "webpack --watch --config webpack/dev.conf.js"
+  },
+  "author": "Mmontsheng Maoto <mmontshengmaoto@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@vue/cli-plugin-babel": "^4.0.0",
+    "@vue/compiler-sfc": "^3.1.4",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^5.2.6",
+    "generate-json-webpack-plugin": "^2.0.0",
+    "html-webpack-plugin": "^5.3.2",
+    "live-server": "^1.2.1",
+    "mini-css-extract-plugin": "^2.1.0",
+    "style-loader": "^3.0.0",
+    "vue-loader": "^15.9.7",
+    "vue-template-compiler": "^2.6.11",
+    "web-ext": "^6.2.0",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "core-js": "^3.15.2",
+    "vue": "^2.6.11"
+  }
+}
