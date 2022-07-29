@@ -1,4 +1,5 @@
-import '../assets/css/bootstrap.min.css';
+import 'src/assets/css/Poppins.css';
+import 'src/assets/css/bootstrap.min.css';
 
 import Vue from 'vue';
 import App from './App.vue';

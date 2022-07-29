@@ -10,6 +10,7 @@
         <product
           :id="'1'"
           :name="product"
+          @delete="deleteProduct(product)"
         />
       </ul>
     </div>
@@ -18,7 +19,7 @@
 
 <script>
 import Product from './components/Product.vue';
-import { get, save } from 'src/storage/index';
+import { get, save, remove } from 'src/storage/index';
 
 export default {
   components: { Product },
@@ -28,11 +29,15 @@ export default {
     };
   },
   methods: {
+    deleteProduct(id) {
+      console.log(id);
+    },
   },
   async mounted() {
     try {
       const d = await get('names');
       this.products = d.names;
+      console.log(d);
     } catch (error) {
       
       console.log(error);
@@ -41,10 +46,6 @@ export default {
   name: 'App',
 };
 </script>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-</style> 
 
 <style>
 body{

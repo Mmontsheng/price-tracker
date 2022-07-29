@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack/dev.conf.js",
-    "build:prod": "webpack --config webpack/prod.conf.js",
+    "build": "webpack --config webpack/dev.conf.mjs",
+    "build:prod": "webpack --config webpack/prod.conf.mjs",
     "serve:firefox": "npm run build && web-ext run --source-dir build --start-url http://localhost:9000/",
     "serve": "live-server --port=9000 --entry-file=./dev/index.html --no-browser",
-    "watch": "webpack --watch --config webpack/dev.conf.js"
+    "watch": "webpack --watch --config webpack/dev.conf.js",
+    "what": "npm run build && webpack -w --config webpack/dev.conf.mjs"
   },
   "author": "Mmontsheng Maoto <mmontshengmaoto@gmail.com>",
   "license": "MIT",
@@ -28,6 +29,7 @@
     "vue-loader": "^15.9.7",
     "vue-template-compiler": "^2.6.11",
     "web-ext": "^6.2.0",
+    "web-ext-plugin": "^2.1.1",
     "webpack": "^5.44.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2",

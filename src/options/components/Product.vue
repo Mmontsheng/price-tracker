@@ -2,7 +2,7 @@
   <li class="my-1 list-group-item d-flex justify-content-between align-items-center">
     <strong>{{ name }}</strong> 
     <span
-      @click="deleteProduct"
+      @click="promptDelete"
       class="bin-icon badge badge-pill">
       <img
         alt="settings"
@@ -21,9 +21,11 @@ export default {
     binIcon: () => bin,
   },
   methods: {
-    deleteProduct() {
+    promptDelete() {
       const prompt = confirm(`Are you sure you want to remove ${this.name}?`);
-      console.log(prompt);
+      if(prompt) {
+        this.$emit('delete');
+      }
     },
   },
   name: 'Product',
