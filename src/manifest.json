@@ -15,12 +15,13 @@
       "48": "assets/icons/48.png"
     },
     "default_title": "Price Tracker",
-    "default_popup": "action/index.html"
+    "default_popup": "actions/index.html"
   },
   "permissions": [
     "notifications",
     "storage",
-    "unlimitedStorage"
+    "unlimitedStorage",
+    "tabs"
   ],
   "options_ui": {
     "page": "options/index.html",

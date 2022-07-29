@@ -1,20 +1,23 @@
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import CopyPlugin from "copy-webpack-plugin";
+import GenerateJsonPlugin from 'generate-json-webpack-plugin';
+import { readFile } from 'fs/promises';
+// import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { VueLoaderPlugin } from 'vue-loader';
 
-const CopyPlugin = require("copy-webpack-plugin");
-const GenerateJsonPlugin = require('generate-json-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
-
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const BUILD_DIR = path.resolve(ROOT_DIR, 'build');
 
-const MANIFEST_FILE = require('../src/manifest.json');
-module.exports = {
+// import MANIFEST_FILE from '../src/manifest.json';
+const MANIFEST_FILE = JSON.parse(await readFile(new URL('../src/manifest.json', import.meta.url)));
+export default  {
   target: 'web',
   context: ROOT_DIR,
   entry: {
-    action: './src/action/index',
+    actions: './src/actions/index',
     options: './src/options/index',
   },
   output: {
@@ -24,6 +27,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
+      actions: path.resolve(ROOT_DIR, 'src/actions'),
+      options: path.resolve(ROOT_DIR, 'src/options'),
       src: path.resolve(ROOT_DIR, 'src'),
     },
   },
